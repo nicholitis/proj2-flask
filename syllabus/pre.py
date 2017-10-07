@@ -52,6 +52,16 @@ def process(raw):
             entry['topic'] = ""
             entry['project'] = ""
             entry['week'] = content
+            i = int(content)-1
+            current_day = arrow.now()
+            week_start = base.shift(weeks=+i)
+            week_end = week_start.shift(days=+6)
+            entry['date'] = week_start.format('MM/DD/YY')
+            if current_day >= week_start and current_day <= week_end:
+                today = True
+            else:
+                today = False
+            entry['get_date'] = today
 
         elif field == 'topic' or field == 'project':
             entry[field] = content

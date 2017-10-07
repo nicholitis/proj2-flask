@@ -5,7 +5,6 @@
    media="screen"/> 
   <link rel="stylesheet" type="text/css" href="static/css/syllabus-print.css"
    media="print"/> 
-
 </head>
 
 <body>
@@ -15,15 +14,20 @@
   {% for entry in g.schedule %}
   {% if loop.index is divisibleby 2 %}
   <tr class="even">
+    {% if entry.get_date == True %}
+    <tr class="current">
+    {% endif %}
   {% else %}
   <tr class="odd">
-  {% endif %}	   
+  {% if entry.get_date == True %}
+      <tr class="current">
+    {% endif %}
+  {% endif %}    
     <td class="week">{{ entry.week }}</td>
     <td class="topic">{{ entry.topic }}</td>
     <td class="project">{{ entry.project}}</td>
   </tr>
   {% endfor %}
-  
 
 
 

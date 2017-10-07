@@ -30,6 +30,11 @@ tr.even {
     background-color: rgb(224,213,179);
 }
 
+tr.current {
+    /*straight up yellow*/
+    background-color: #ffce00;
+}
+
 .class-schedule .week {
     
     font-weight: bolder;
@@ -50,3 +55,4 @@ tr.even {
     padding-left: 2ex;
     font-style: italic;
 }
+
